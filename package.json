@@ -1,0 +1,29 @@
+{
+  "name": "lance-pixi-sandbox",
+  "version": "0.0.1",
+  "engines": {
+    "node": "10.10.0"
+  },
+  "main": "main.js",
+  "scripts": {
+    "brow": "watch \"browserify src/client/main.js -o public/dist/app.js\" src/client",
+    "server": "nodemon --watch src/server main.js",
+    "debug": "concurrently -k -p \"[{name}]\" -n \"BROWSERIFY,NODEMON\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run brow\" \"npm run server\"",
+    "start": "node main.js",
+    "ugly": "uglifyjs --compress --mangle -o public/dist/app.js public/dist/app.js",
+    "publish": "git push heroku master"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "16.2.2",
+    "concurrently": "4.0.1",
+    "express": "4.16.3",
+    "lance-gg": "3.0.2",
+    "nodemon": "1.18.4",
+    "pixi.js": "4.8.2",
+    "socket.io": "2.1.1",
+    "uglify-js-es6": "2.8.9",
+    "watch": "1.0.2"
+  }
+}
